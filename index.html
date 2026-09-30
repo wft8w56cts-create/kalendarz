@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Kalendarz">
+<title>Kalendarz</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="layout">
+  <section class="card" id="card">
+    <div class="card-top" id="monthYear"></div>
+    <div class="card-body">
+      <div class="day-num" id="dayNum"></div>
+      <div class="weekday" id="weekday"></div>
+      <div class="holiday" id="holiday"></div>
+      <div class="names"><span class="label">Imieniny:</span> <span id="names"></span></div>
+    </div>
+    <div class="card-foot" id="yearInfo"></div>
+  </section>
+
+  <section class="panel">
+    <div class="clock"><span id="clock"></span><span class="sec" id="sec"></span></div>
+
+    <div class="block weather" id="weather">
+      <div class="now">
+        <span class="w-icon" id="wIcon"></span>
+        <span class="w-temp" id="wTemp">--°</span>
+        <div class="w-desc">
+          <div id="wText">Pobieranie pogody…</div>
+          <div class="muted" id="wFeels"></div>
+        </div>
+      </div>
+      <div class="w-details muted" id="wDetails"></div>
+      <div class="hours" id="wHours"></div>
+    </div>
+
+    <div class="block astro">
+      <div class="astro-row">
+        <span class="a-icon">☀️</span>
+        <div>
+          <div><span class="muted">Wschód</span> <b id="sunrise"></b> <span class="muted">Zachód</span> <b id="sunset"></b></div>
+          <div class="muted" id="dayLength"></div>
+        </div>
+      </div>
+      <div class="astro-row">
+        <span class="a-icon" id="moonIcon"></span>
+        <div>
+          <div><b id="moonName"></b> <span class="muted" id="moonLit"></span></div>
+          <div class="muted" id="moonTimes"></div>
+          <div class="muted" id="moonNext"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="status muted" id="status"></div>
+  </section>
+</main>
+
+<script src="lib/suncalc.js"></script>
+<script src="lib/namedays.js"></script>
+<script src="lib/holidays.js"></script>
+<script src="lib/weather.js"></script>
+<script src="lib/dateutils.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
