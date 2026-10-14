@@ -111,7 +111,8 @@
     var prev = SunCalc.getMoonIllumination(from).phase;
     for (var t = from.getTime() + step, i = 0; i < 24 * 31; i++, t += step) {
       var p = SunCalc.getMoonIllumination(new Date(t)).phase;
-      var crossed = target === 0 ? p < prev : (prev < target && p >= target);
+      // New moon: phase wraps from ~1 to ~0. A small dip near full moon is sign noise in the limb angle.
+      var crossed = target === 0 ? p < prev - 0.5 : (prev < target && p >= target);
       if (crossed) return new Date(t);
       prev = p;
     }
